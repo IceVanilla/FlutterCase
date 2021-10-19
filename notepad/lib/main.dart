@@ -39,6 +39,22 @@ class NotepadState extends State<NotepadPage> {
       appBar: AppBar(
         title: Text("Notepad"),
       ),
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child: ListView.builder(
+          itemCount: _todos.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(_todos[index].title),
+              subtitle: Text(
+                _todos[index].description,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
