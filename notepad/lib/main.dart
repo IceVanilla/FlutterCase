@@ -7,7 +7,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Flutter',
-      home: NotepadPage()
+      // home: NotepadPage()
+      home: DetailPage(),
     );
   }
 }
@@ -81,6 +82,22 @@ class NotepadState extends State<NotepadPage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: null,
+      ),
+    );
+  }
+}
+
+class DetailPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => DetailState();
+}
+
+class DetailState extends State<DetailPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Detail"),
       ),
     );
   }
