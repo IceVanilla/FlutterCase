@@ -76,6 +76,10 @@ class NotepadState extends State<NotepadPage> {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: null,
+      ),
     );
   }
 }
