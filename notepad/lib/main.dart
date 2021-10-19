@@ -25,6 +25,14 @@ class Todo {
 }
 
 class NotepadState extends State<NotepadPage> {
+  List<Todo> _todos = List.generate(
+    5,
+    (index) => Todo(
+      "Todo $index",
+      "A description of what needs to be done for Todo $index"
+    )
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
