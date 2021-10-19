@@ -43,10 +43,22 @@ class FormState extends State<FormPage> {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: <Widget>[
             Center(
-              child: Text("Information"),
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Name"
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ),
             Center(
               child: Text("Setting"),
