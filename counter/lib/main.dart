@@ -24,6 +24,18 @@ class CounterState extends State<CounterPage> {
       appBar: AppBar(
         title: Text("Counter"),
       ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Text(
+                "0",
+                style: Theme.of(context).textTheme.headline1,
+              ),
+            )
+          ], 
+        ), 
+      )
     );
   }
 }
