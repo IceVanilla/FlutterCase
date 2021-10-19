@@ -18,16 +18,18 @@ class NotepadPage extends StatefulWidget {
 }
 
 class Todo {
+  int index;
   String title;
   String description;
 
-  Todo(this.title, this.description);
+  Todo(this.index, this.title, this.description);
 }
 
 class NotepadState extends State<NotepadPage> {
   List<Todo> _todos = List.generate(
     5,
     (index) => Todo(
+      index,
       "Todo $index",
       "A description of what needs to be done for Todo $index"
     )
