@@ -26,13 +26,36 @@ class DisplayState extends State<DisplayPage> {
     "But they answered: \"Frighten? Why should any one be frightened by a hat?\"",
     "My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant. But since the grown-ups were not able to understand it, I made another drawing: I drew the inside of the boa constrictor, so that the grown-ups could see it clearly. They always need to have things explained.",
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("DisplayBoard"),
       ),
+      body: displaylist(),
     );
   }
+
+  Widget displaylist() {
+    return ListView.builder(
+      padding: const EdgeInsets.all(8),
+      itemCount: _content.length,
+      itemBuilder: (BuildContext _context, int index) {
+        return Container(
+          height: 150,
+          margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+          padding: const EdgeInsets.all(8),
+          child: Text(
+            _content[index],
+            style: const TextStyle(
+              fontSize: 16
+            ),
+          ),
+          color: Colors.blue[(index + 1) * 100],
+        );
+      },
+    );
+  }
+
 }
