@@ -18,6 +18,8 @@ class FormPage extends StatefulWidget {
 }
 
 class FormState extends State<FormPage> {
+  String _phone_type = "mobile";
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -56,6 +58,49 @@ class FormState extends State<FormPage> {
                         labelText: "Name"
                       ),
                     ),
+                    Divider(
+                      height: 10,
+                      color: Colors.white,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 6,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: "Phone number"
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Expanded(
+                          flex: 3,
+                          child: DropdownButton<String>(
+                            value: _phone_type,
+                            onChanged: (String? value) {
+                              setState(() {
+                                _phone_type = value.toString();
+                              });
+                            },
+                            items: <DropdownMenuItem<String>>[
+                              DropdownMenuItem(
+                                value: "mobile",
+                                child: Text("mobile"),
+                              ),
+                              DropdownMenuItem(
+                                value: "home",
+                                child: Text("home"),
+                              ),
+                              DropdownMenuItem(
+                                value: "work",
+                                child: Text("work"),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 ),
               )
