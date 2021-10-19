@@ -19,6 +19,7 @@ class FormPage extends StatefulWidget {
 
 class FormState extends State<FormPage> {
   String _phone_type = "mobile";
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,77 +48,93 @@ class FormState extends State<FormPage> {
         ),
         body: TabBarView(
           children: <Widget>[
-            Center(
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Name"
+            SingleChildScrollView(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Name"
+                    ),
+                  ),
+                  Divider(
+                    height: 10,
+                    color: Colors.white,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 6,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: "Phone number"
+                          ),
+                        ),
                       ),
-                    ),
-                    Divider(
-                      height: 10,
-                      color: Colors.white,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 6,
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: "Phone number"
+                      Spacer(),
+                      Expanded(
+                        flex: 3,
+                        child: DropdownButton<String>(
+                          value: _phone_type,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _phone_type = value.toString();
+                            });
+                          },
+                          items: <DropdownMenuItem<String>>[
+                            DropdownMenuItem(
+                              value: "mobile",
+                              child: Text("mobile"),
                             ),
-                          ),
+                            DropdownMenuItem(
+                              value: "home",
+                              child: Text("home"),
+                            ),
+                            DropdownMenuItem(
+                              value: "work",
+                              child: Text("work"),
+                            ),
+                          ],
                         ),
-                        Spacer(),
-                        Expanded(
-                          flex: 3,
-                          child: DropdownButton<String>(
-                            value: _phone_type,
-                            onChanged: (String? value) {
-                              setState(() {
-                                _phone_type = value.toString();
-                              });
-                            },
-                            items: <DropdownMenuItem<String>>[
-                              DropdownMenuItem(
-                                value: "mobile",
-                                child: Text("mobile"),
-                              ),
-                              DropdownMenuItem(
-                                value: "home",
-                                child: Text("home"),
-                              ),
-                              DropdownMenuItem(
-                                value: "work",
-                                child: Text("work"),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      height: 10,
-                      color: Colors.white,
-                    ),
-                    TextField(
-                      maxLines: 5,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Address",
                       ),
-                    )
-                  ],
-                ),
-              )
+                    ],
+                  ),
+                  Divider(
+                    height: 10,
+                    color: Colors.white,
+                  ),
+                  TextField(
+                    maxLines: 5,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Address",
+                    ),
+                  )
+                ],
+              ),
             ),
-            Center(
-              child: Text("Setting"),
+            SingleChildScrollView(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text("Notification"),
+                    trailing: Switch(
+                      value: this._notification,
+                      activeColor: Colors.blue,
+                      onChanged: (bool val) {
+                          this.setState(() {
+                            this._notification = val;
+                          }
+                        );
+                      },
+                    ),
+                  ),
+                  Text(this._notification.toString())
+                ],
+              ),
             ),
           ],
         ),
