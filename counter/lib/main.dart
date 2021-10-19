@@ -18,6 +18,8 @@ class CounterPage extends StatefulWidget {
 }
 
 class CounterState extends State<CounterPage> {
+  int _count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class CounterState extends State<CounterPage> {
           children: <Widget>[
             Container(
               child: Text(
-                "0",
+                "$_count",
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),
@@ -39,17 +41,17 @@ class CounterState extends State<CounterPage> {
                 Spacer(),
                 ElevatedButton(
                   child: Text("+1"),
-                  onPressed: null,
+                  onPressed: _countplus,
                 ),
                 Spacer(),
                 ElevatedButton(
                   child: Text("Zero"),
-                  onPressed: null,
+                  onPressed: _countzero,
                 ),
                 Spacer(),
                 ElevatedButton(
                   child: Text("-1"),
-                  onPressed: null,
+                  onPressed: _countminus,
                 ),
                 Spacer()
               ],
@@ -59,4 +61,23 @@ class CounterState extends State<CounterPage> {
       )
     );
   }
+
+  void _countplus() {
+    setState(() {
+      _count++;
+    });
+  }
+
+  void _countminus() {
+    setState(() {
+      _count--;
+    });
+  }
+
+  void _countzero() {
+    setState(() {
+      _count = 0;
+    });
+  }
+
 }
