@@ -26,6 +26,7 @@ class CounterState extends State<CounterPage> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
               child: Text(
