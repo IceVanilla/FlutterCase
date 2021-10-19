@@ -17,6 +17,13 @@ class NotepadPage extends StatefulWidget {
   State<StatefulWidget> createState() => NotepadState();
 }
 
+class Todo {
+  String title;
+  String description;
+
+  Todo(this.title, this.description);
+}
+
 class NotepadState extends State<NotepadPage> {
   @override
   Widget build(BuildContext context) {
