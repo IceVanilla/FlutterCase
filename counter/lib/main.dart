@@ -32,6 +32,26 @@ class CounterState extends State<CounterPage> {
                 "0",
                 style: Theme.of(context).textTheme.headline1,
               ),
+            ),
+            Row(
+              children: <Widget>[
+                Spacer(),
+                ElevatedButton(
+                  child: Text("+1"),
+                  onPressed: null,
+                ),
+                Spacer(),
+                ElevatedButton(
+                  child: Text("Zero"),
+                  onPressed: null,
+                ),
+                Spacer(),
+                ElevatedButton(
+                  child: Text("-1"),
+                  onPressed: null,
+                ),
+                Spacer()
+              ],
             )
           ], 
         ), 
