@@ -26,6 +26,7 @@ class DisplayState extends State<DisplayPage> {
     "But they answered: \"Frighten? Why should any one be frightened by a hat?\"",
     "My drawing was not a picture of a hat. It was a picture of a boa constrictor digesting an elephant. But since the grown-ups were not able to understand it, I made another drawing: I drew the inside of the boa constrictor, so that the grown-ups could see it clearly. They always need to have things explained.",
   ];
+  int _display_state = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,36 @@ class DisplayState extends State<DisplayPage> {
       appBar: AppBar(
         title: const Text("DisplayBoard"),
       ),
-      body: displaylist(),
+      body: Column(
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  child: const Text("List"),
+                  onPressed: null,
+                ),
+                const SizedBox(
+                  width: 1,
+                  height: 15,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.grey),
+                  ),
+                ),
+                TextButton(
+                  child: const Text("Grid"),
+                  onPressed: null, 
+                ),
+              ],
+            ),
+          ),
+          _display_state == 0
+            ? Flexible(child: displaylist())
+            : Flexible(child: displaygrid()),
+        ],
+      )
     );
   }
 
