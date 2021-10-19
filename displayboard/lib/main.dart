@@ -43,7 +43,7 @@ class DisplayState extends State<DisplayPage> {
               children: <Widget>[
                 TextButton(
                   child: const Text("List"),
-                  onPressed: null,
+                  onPressed: _to_list_state,
                 ),
                 const SizedBox(
                   width: 1,
@@ -54,7 +54,7 @@ class DisplayState extends State<DisplayPage> {
                 ),
                 TextButton(
                   child: const Text("Grid"),
-                  onPressed: null, 
+                  onPressed: _to_grid_state, 
                 ),
               ],
             ),
@@ -106,6 +106,18 @@ class DisplayState extends State<DisplayPage> {
         );
       }
     );
+  }
+
+  void _to_list_state() {
+    setState(() {
+      _display_state = 0;
+    });
+  }
+
+  void _to_grid_state() {
+    setState(() {
+      _display_state = 1;
+    });
   }
 
 }
