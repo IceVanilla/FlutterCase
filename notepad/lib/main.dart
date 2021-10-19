@@ -51,6 +51,30 @@ class NotepadState extends State<NotepadPage> {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailPage(),
+                    settings: RouteSettings(
+                      arguments: {
+                        "index": index,
+                        "todo": _todos[index],
+                      }
+                    )
+                  )
+                ).then((value) {
+                  setState(() {
+                    if (value["todo"].title != "") {
+                      _todos[value["index"]] = (value["todo"] as Todo);
+                    } else if (value["todo"].description != "") {
+                      Todo _todox = value["todo"];
+                      _todox.title = _todox.description.split(" ")[0];
+                      _todos[value["index"]] = _todox;
+                    }
+                  });
+                });
+              },
               onLongPress: () => showDialog<String>(
                 context: context, 
                 builder: (BuildContext context) => AlertDialog(
