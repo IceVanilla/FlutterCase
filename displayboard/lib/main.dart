@@ -58,4 +58,24 @@ class DisplayState extends State<DisplayPage> {
     );
   }
 
+  Widget displaygrid() {
+    return GridView.builder(
+      padding: const EdgeInsets.all(8),
+      itemCount: _content.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 10.0,
+        childAspectRatio: 0.8,
+      ), 
+      itemBuilder: (BuildContext _context, int index) {
+        return Container(
+          padding: const EdgeInsets.all(8),
+          child: Text(_content[index]),
+          color: Colors.blue[(index + 1) * 100],
+        );
+      }
+    );
+  }
+
 }
