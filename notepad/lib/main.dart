@@ -99,6 +99,32 @@ class DetailState extends State<DetailPage> {
       appBar: AppBar(
         title: Text("Detail"),
       ),
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Title",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            Divider(
+              color: Colors.white,
+            ),
+            Flexible(
+              child: TextField(
+                maxLength: 500,
+                maxLines: 15,
+                decoration: InputDecoration(
+                  labelText: "Description",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
