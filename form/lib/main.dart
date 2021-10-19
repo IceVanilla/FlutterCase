@@ -98,8 +98,19 @@ class FormState extends State<FormPage> {
                               ),
                             ],
                           ),
-                        )
+                        ),
                       ],
+                    ),
+                    Divider(
+                      height: 10,
+                      color: Colors.white,
+                    ),
+                    TextField(
+                      maxLines: 5,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Address",
+                      ),
                     )
                   ],
                 ),
