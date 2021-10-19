@@ -51,6 +51,27 @@ class NotepadState extends State<NotepadPage> {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
+              onLongPress: () => showDialog<String>(
+                context: context, 
+                builder: (BuildContext context) => AlertDialog(
+                  title: Text("Delete?"),
+                  actions: <Widget>[
+                    TextButton(
+                      child: Text("Cancel"),
+                      onPressed: () => Navigator.pop(context, "Cancel"),
+                    ),
+                    TextButton(
+                      child: Text("Confirm"),
+                      onPressed: () {
+                        setState(() {
+                          _todos.removeAt(index);
+                          Navigator.pop(context, "Confirm");
+                        });
+                      },
+                    )
+                  ],
+                )
+              )
             );
           },
         ),
