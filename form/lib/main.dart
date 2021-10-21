@@ -20,6 +20,7 @@ class FormPage extends StatefulWidget {
 class FormState extends State<FormPage> {
   String _phone_type = "mobile";
   bool _notification = false;
+  double _volume = 50;
 
   @override
   Widget build(BuildContext context) {
@@ -129,6 +130,21 @@ class FormState extends State<FormPage> {
                             this._notification = val;
                           }
                         );
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Volume"),
+                    subtitle: Slider(
+                      value: _volume,
+                      min: 0,
+                      max: 100,
+                      divisions: 20,
+                      label: _volume.round().toString(),
+                      onChanged: (double value) {
+                        setState(() {
+                          _volume = value;
+                        });
                       },
                     ),
                   ),
