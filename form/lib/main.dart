@@ -19,6 +19,7 @@ class FormPage extends StatefulWidget {
 
 class FormState extends State<FormPage> {
   String _phone_type = "mobile";
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +117,23 @@ class FormState extends State<FormPage> {
             ),
             SingleChildScrollView(
               padding: EdgeInsets.all(10),
-              child: Text("Setting"),
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text("Notification"),
+                    trailing: Switch(
+                      value: this._notification,
+                      activeColor: Colors.blue,
+                      onChanged: (bool val) {
+                          this.setState(() {
+                            this._notification = val;
+                          }
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
