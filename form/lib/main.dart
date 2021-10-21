@@ -17,11 +17,14 @@ class FormPage extends StatefulWidget {
   State<StatefulWidget> createState() => FormState();
 }
 
+enum Pattern { easy, hard }
+
 class FormState extends State<FormPage> {
   String _phone_type = "mobile";
   bool _notification = false;
   double _volume = 50;
   bool _storage = true, _location = false;
+  Pattern _pattern = Pattern.easy;
 
   @override
   Widget build(BuildContext context) {
@@ -174,6 +177,37 @@ class FormState extends State<FormPage> {
                               });
                             }
                           )
+                        )
+                      ],
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Pattern"),
+                    subtitle: Column(
+                      children: <Widget>[
+                        ListTile(
+                          title: Text("Easy"),
+                          leading: Radio<Pattern>(
+                            value: Pattern.easy,
+                            groupValue: _pattern,
+                            onChanged: (Pattern? value) {
+                              setState(() {
+                                _pattern = value as Pattern;
+                              });
+                            },
+                          ),
+                        ),
+                        ListTile(
+                          title: Text("Hard"),
+                          leading: Radio<Pattern>(
+                            value: Pattern.hard,
+                            groupValue: _pattern,
+                            onChanged: (Pattern? value) {
+                              setState(() {
+                                _pattern = value as Pattern;
+                              });
+                            },
+                          ),
                         )
                       ],
                     ),
