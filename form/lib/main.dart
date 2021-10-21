@@ -47,7 +47,16 @@ class FormState extends State<FormPage> {
           children: <Widget>[
             SingleChildScrollView(
               padding: EdgeInsets.all(10),
-              child: Text("Information"),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Name"
+                    ),
+                  ),
+                ],
+              ),
             ),
             SingleChildScrollView(
               padding: EdgeInsets.all(10),
