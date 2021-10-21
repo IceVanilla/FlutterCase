@@ -21,6 +21,7 @@ class FormState extends State<FormPage> {
   String _phone_type = "mobile";
   bool _notification = false;
   double _volume = 50;
+  bool _storage = true, _location = false;
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +147,35 @@ class FormState extends State<FormPage> {
                           _volume = value;
                         });
                       },
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Permission"),
+                    subtitle: Column(
+                      children: <Widget>[
+                        ListTile(
+                          title: Text("Storage"),
+                          leading: Checkbox(
+                            value: _storage,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                _storage = value as bool;
+                              });
+                            }
+                          )
+                        ),
+                        ListTile(
+                          title: Text("Location"),
+                          leading: Checkbox(
+                            value: _location,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                _location = value as bool;
+                              });
+                            }
+                          )
+                        )
+                      ],
                     ),
                   ),
                 ],
